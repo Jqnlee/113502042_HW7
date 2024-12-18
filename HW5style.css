@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Trebuchet MS, sans-serif;
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+    min-height: 100vh; /* 整個頁面高度 */
+    background-color: #f9f9f9;
+}
+
+.wrap {
+    display: flex; 
+    min-height: 100vh; 
+    align-items: stretch; 
+}
+
+.left-panel {
+    background-color: #ae3f28; 
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    background-color: #d6a9a0; 
+    width: 55%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.education-section {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+h2 {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.education-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.year {
+    width: 100px;
+    font-weight: bold;
+    color: #555;
+}
+
+.details {
+    flex: 1;
+    line-height: 1.5;
+}
+
+strong {
+    font-size: 16px;
+}
+
+.music–item {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #d6a9a0;
+    padding: 20px;
+    border: 1px solid #d6a9a0;
+    border-radius: 8px;
+    justify-content: center; 
+    align-items: center;
+    background-color: #d6a9a0;
+    text-align:center; 
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  background-color: #ae3f28;
+  color: #D0E7DC;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+#name-display {
+    margin-right: 4vh; 
+    font-size: 40px; 
+}
+
+#edit-save-btn {
+    padding: 2px 5px; 
+    font-size: 13px; 
+}
+
+.gallery {
+    display: flex;
+    justify-content: center; /* 水平置中所有元素 */
+    align-items: center;
+    gap: 12px; /* 圖片與圖片之間的間距 */
+}
+
+.item {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 讓文字與圖片置中對齊 */
+    text-align: center;
+}
+
+.item img {
+    border-radius: 8px; /* 添加圓角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加陰影效果 */
+}
+
+.item p {
+    margin-top: 7px; /* 文字和圖片之間的間距 */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* 表單容器 */
+#music-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: none; /* 初始隱藏 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* 隱藏的類別 */
+.hidden {
+    display: none;
+}

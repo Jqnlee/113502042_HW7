@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW5</title>
+    <link rel="stylesheet" type="text/css" href="HW5style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="left-panel">
+            <div class="photo-panel"></div>
+            <img src="me.jpeg" height="320">
+            <div class="container">
+            <h1 id="name-display">Joan</h1>
+            <button id="edit-save-btn">edit</button>
+            </div>
+            <div class="text-content">
+                <h2>ABOUT ME</h2>
+                <hr>
+                <p>
+                    I am a freshman in the Department of Management Information Systems at National Chengchi University. <br>
+                    I am very interested in studying programming and computer science fundamentals. <br>
+                    I have experience in writing Java, HTML, CSS, JavaScript, and Python.<br>
+                </p>
+                <h2>CONTACT</h2>
+                <hr>
+                <p>113502042@g.nccu.edu.tw</p>
+                <br>
+                <br>
+                <img src="nccu.png" alt="NCCU Logo" width="200">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="right-panel">
+        <h2>Education</h2>
+        <hr>
+        <div class="education-item">
+            <div class="year">2023 - <br>now</div>
+            <div class="details">
+                <strong>National Chengchi University, Department of MIS</strong><br>
+                Computer Science
+            </div>
+        </div>
+        <div class="education-item">
+            <div class="year">2021 - <br>2023</div>
+            <div class="details">
+                <strong>Xinzhuang High School</strong><br>
+                Participated in computer science club
+            </div>
+        </div>
+        <div class="education-item">
+            <div class="year">2018 - <br>2021</div>
+            <div class="details">
+                <strong>Middle School Graduation</strong><br>
+                Started developing an interest in computer science
+            </div>
+        </div>
+        <h2>Homework List</h2>
+        <hr>
+        <li><a href="https://github.com/Jqnlee/HW-1.git">HW1</a></li>
+        <li><p><a href="https://github.com/Jqnlee/HW2.git">HW2</a></p></li>
+        <li><p><a href="https://github.com/Jqnlee/HW__3.git">HW3</a></p></li>
+        <br>
+        <h2>Favorite Music</h2>
+        <hr>
+    <div class="gallery">
+
+        <div class="item">
+            <a href="https://youtu.be/qU9mHegkTc4?si=QHqh63SGV7T_HeKH"><img src="505.jpeg" height="60" width="60" alt="505"></a>
+            <p>505</p>
+        </div>
+        <div class="item">
+            <a href="https://youtu.be/4FFALDn1yGQ?si=SokXEXtCI7eQi8cJ"><img src="大雨拷貝.jpeg" height="60" width="60" alt="deca"></a>
+            <p>大雨</p>
+        </div>
+        <div class="item">
+            <a href="https://youtu.be/SHP-xh5NnVs?si=BL6PSTxxcC8K1cJt"><img src="toronto.jpg" height="60" width="60" alt="2014"></a>
+            <p>Toronto2014</p>
+        </div>
+        <div class="item">
+             <a href="https://youtu.be/kdw1IuoJjns?si=6TYPyfFdx1eZFFyH"><img src="toto.jpg" height="60" width="60" alt="偷偷"></a>
+            <p>偷偷</p>
+        </div>
+    </div>
+             <div id="music-list">
+        <!-- 音樂項目會加在這裡 -->
+    </div>
+    <button id="add-music-btn">Add</button>
+
+<div id="music-form-container" style="display: none;">
+    <form id="music-form">
+        <h2>新增音樂</h2>
+        <input type="text" id="music-link" placeholder="音樂連結" required>
+        <input type="text" id="music-name" placeholder="音樂名稱" required>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+    </div>
+<script>
+const nameDisplay = document.getElementById("name-display");
+const editSaveBtn = document.getElementById("edit-save-btn");
+let isEditing = false; 
+
+editSaveBtn.addEventListener("click", () => {
+  if (!isEditing) { 
+    const currentName = nameDisplay.textContent;
+    nameDisplay.innerHTML = `<input type="text" id="name-input" value="${currentName}">`;
+    editSaveBtn.textContent = "save";
+    isEditing = true;
+  } else { 
+    const inputField = document.getElementById("name-input");
+    const newName = inputField.value.trim();
+    if (newName) {
+      nameDisplay.textContent = newName; 
+    }
+    editSaveBtn.textContent = "edit";
+    isEditing = false; 
+  }
+});
+
+
+
+// 選取按鈕和表單
+const addMusicBtn = document.getElementById("add-music-btn");
+const musicFormContainer = document.getElementById("music-form-container");
+const musicForm = document.getElementById("music-form");
+const musicList = document.getElementById("music-list");
+
+// 顯示表單
+addMusicBtn.addEventListener("click", () => {
+    musicFormContainer.style.display = "block";
+});
+
+// 表單提交事件
+musicForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // 防止表單提交刷新頁面
+
+    const musicLink = document.getElementById("music-link").value.trim();
+    const musicName = document.getElementById("music-name").value.trim();
+
+    if (musicLink && musicName) {
+        // 建立音樂項目
+        const musicItem = document.createElement("div");
+        musicItem.className = "music-item";
+        musicItem.innerHTML = `
+            <a href="${musicLink}" target="_blank">
+                <img src="spo.svg.png" alt="${musicName}" height="60" width="60">
+            </a>
+            <p>${musicName}</p>
+        `;
+        musicList.appendChild(musicItem);
+
+        // 清空表單並隱藏
+        document.getElementById("music-link").value = "";
+        document.getElementById("music-name").value = "";
+        musicFormContainer.style.display = "none";
+    } else {
+        alert("請填寫完整");
+    }
+});
+
+
+
+
+
+</script>
+
+</body>
+</html>
